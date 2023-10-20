@@ -52,14 +52,14 @@ public class Login {
         Driver.findElement(By.id("user-name")).sendKeys("standard_user");
 
         //Input IncorrectPassword
-        Driver.findElement(By.id("password")).sendKeys("secret_cabe");
+        Driver.findElement(By.id("password")).sendKeys("secret_caebe");
 
         //Button Login
         Driver.findElement(By.id("login-button")).click();
 
         // Close Browser
         Driver.quit();
-        Assert.assertEquals("secret_sauce","secret_cabe");
+        Assert.assertEquals("secret_sauce","secret_caebe");
     }
 
 }
