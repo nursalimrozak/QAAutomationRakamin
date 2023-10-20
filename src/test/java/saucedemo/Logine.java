@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Login {
+public class Logine {
 
         @Test
         public void Login_Sukses(){
@@ -23,7 +23,7 @@ public class Login {
             Assert.assertEquals("Swag Labs",loginPageAssert);
 
             //Input Email
-            Driver.findElement(By.id("user-name")).sendKeys("standard_user");
+            Driver.findElement(By.id("user-name")).sendKeys("qwerstandard_user");
 
             //Input Password
             Driver.findElement(By.id("password")).sendKeys("secret_sauce");
