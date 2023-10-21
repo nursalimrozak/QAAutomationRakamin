@@ -9,7 +9,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import java.time.Duration;
 
 public class login {
     WebDriver Driver;
@@ -50,7 +49,9 @@ public class login {
 
     @Then("User get error message")
     public void user_get_error_message() {
-        Assert.assertEquals("Epic sadface: Username and password do not match any user in this service","Epic sadface: Username and password do not match any user in this service");
+        String errorMessage = Driver.findElement(By.cssSelector("[data-test='error']")).getText();
+        String error = "Epic sadface: Username and password do not match any user in this service";
+        Assert.assertEquals(errorMessage, error);
     }
 
     @When("User click burger menu")
@@ -95,7 +96,7 @@ public class login {
     @And("User Input Last Name")
     public void userInputLastName() {
         Driver.findElement(By.id("last-name")).sendKeys("Rozak");
-        pause(5000);
+        pause(2000);
     }
 
     @And("User Input PostCode")
@@ -116,7 +117,6 @@ public class login {
     @And("User Click Finish Button")
     public void userClickFinishButton() {
         Driver.findElement(By.id("finish")).click();
-        Duration timeout = Duration.ofSeconds(20);
     }
 
     @Then("User Directed to Complete Order Page")
