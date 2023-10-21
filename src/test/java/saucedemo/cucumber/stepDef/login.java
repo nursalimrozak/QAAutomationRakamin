@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import java.time.Duration;
 
 public class login {
     WebDriver Driver;
@@ -88,16 +89,19 @@ public class login {
     @When("User Input Firts Name")
     public void userInputFirtsName() {
         Driver.findElement(By.id("first-name")).sendKeys("NurSalim");
+        pause(5000);
     }
 
     @And("User Input Last Name")
     public void userInputLastName() {
         Driver.findElement(By.id("last-name")).sendKeys("Rozak");
+        pause(5000);
     }
 
     @And("User Input PostCode")
     public void userInputPostCode() {
         Driver.findElement(By.id("postal-code")).sendKeys("3464662");
+        pause(5000);
     }
 
     @And("User Click Continue Button")
@@ -112,6 +116,7 @@ public class login {
     @And("User Click Finish Button")
     public void userClickFinishButton() {
         Driver.findElement(By.id("finish")).click();
+        Duration timeout = Duration.ofSeconds(20);
     }
 
     @Then("User Directed to Complete Order Page")
@@ -125,5 +130,13 @@ public class login {
 
     @Then("User Back to Home Page")
     public void userBackToHomePage() {
+    }
+
+    public static void pause(long milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 }
