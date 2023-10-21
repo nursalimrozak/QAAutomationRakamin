@@ -52,4 +52,78 @@ public class login {
         Assert.assertEquals("Epic sadface: Username and password do not match any user in this service","Epic sadface: Username and password do not match any user in this service");
     }
 
+    @When("User click burger menu")
+    public void userClickBurgerMenu() {
+        Driver.findElement(By.id("react-burger-menu-btn")).click();
+    }
+
+    @And("User click Logout")
+    public void userClickLogout() {
+        Driver.findElement(By.id("logout_sidebar_link")).click();
+    }
+
+    @Then("User Logout")
+    public void userLogout() {
+    }
+
+    @And("User Add Product")
+    public void userAddProduct() {
+        Driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
+    }
+
+    @And("User Click Icon Cart")
+    public void userClickIconCart() {
+        Driver.findElement(By.id("shopping_cart_container")).click();
+    }
+
+    @Then("User Direct to Page Cart")
+    public void userDirectToPageCart() {
+    }
+
+    @And("User Click Checkout Button")
+    public void userClickCheckoutButton() {
+        Driver.findElement(By.id("checkout")).click();
+    }
+
+    @When("User Input Firts Name")
+    public void userInputFirtsName() {
+        Driver.findElement(By.id("first-name")).sendKeys("NurSalim");
+    }
+
+    @And("User Input Last Name")
+    public void userInputLastName() {
+        Driver.findElement(By.id("last-name")).sendKeys("Rozak");
+    }
+
+    @And("User Input PostCode")
+    public void userInputPostCode() {
+        Driver.findElement(By.id("postal-code")).sendKeys("3464662");
+    }
+
+    @And("User Click Continue Button")
+    public void userClickContinueButton() {
+        Driver.findElement(By.id("continue")).click();
+    }
+
+    @Then("User Directed to Overview Page")
+    public void userDirectedToOverviewPage() {
+    }
+
+    @And("User Click Finish Button")
+    public void userClickFinishButton() {
+        Driver.findElement(By.id("finish")).click();
+    }
+
+    @Then("User Directed to Complete Order Page")
+    public void userDirectedToCompleteOrderPage() {
+    }
+
+    @When("User Click Back Home Button")
+    public void userClickBackHomeButton() {
+        Driver.findElement(By.id("back-to-products")).click();
+    }
+
+    @Then("User Back to Home Page")
+    public void userBackToHomePage() {
+    }
 }
