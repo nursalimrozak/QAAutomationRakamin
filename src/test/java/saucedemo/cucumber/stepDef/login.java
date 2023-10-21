@@ -49,7 +49,9 @@ public class login {
 
     @Then("User get error message")
     public void user_get_error_message() {
-        Assert.assertEquals("Epic sadface: Username and password do not match any user in this service","Epic sadface: Username and password do not match any user in this service");
+        String errorMessage = Driver.findElement(By.cssSelector("[data-test='error']")).getText();
+        String error = "Epic sadface: Username and password do not match any user in this service";
+        Assert.assertEquals(errorMessage, error);
     }
 
     @When("User click burger menu")
@@ -88,16 +90,19 @@ public class login {
     @When("User Input Firts Name")
     public void userInputFirtsName() {
         Driver.findElement(By.id("first-name")).sendKeys("NurSalim");
+        pause(5000);
     }
 
     @And("User Input Last Name")
     public void userInputLastName() {
         Driver.findElement(By.id("last-name")).sendKeys("Rozak");
+        pause(2000);
     }
 
     @And("User Input PostCode")
     public void userInputPostCode() {
         Driver.findElement(By.id("postal-code")).sendKeys("3464662");
+        pause(5000);
     }
 
     @And("User Click Continue Button")
@@ -125,5 +130,13 @@ public class login {
 
     @Then("User Back to Home Page")
     public void userBackToHomePage() {
+    }
+
+    public static void pause(long milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 }
