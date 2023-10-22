@@ -8,14 +8,15 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class login {
     WebDriver Driver;
     String baseUrl = "https://www.saucedemo.com/";
+
     @Given("Halaman login saucedemo")
-    public void halamanloginsaucedemo()
-    {
+    public void halaman_login_saucedemo() {
         WebDriverManager.firefoxdriver().setup();
         Driver = new FirefoxDriver();
         Driver.get(baseUrl);
@@ -39,7 +40,9 @@ public class login {
     }
 
     @Then("User direct to Dashboard Page")
-    public void userdirecttodashboardpage() {
+    public void user_direct_to_Dashboard_Page() {
+        WebElement judul = Driver.findElement(By.className("app_logo"));
+        Assert.assertEquals("Swag Labs", judul.getText());
     }
 
     @And("Input Invalid password")
@@ -91,19 +94,19 @@ public class login {
     @When("User Input Firts Name")
     public void userInputFirtsName() {
         Driver.findElement(By.id("first-name")).sendKeys("NurSalim");
-        pause(5000);
+        pause(1000);
     }
 
     @And("User Input Last Name")
     public void userInputLastName() {
         Driver.findElement(By.id("last-name")).sendKeys("Rozak");
-        pause(2000);
+        pause(1000);
     }
 
     @And("User Input PostCode")
     public void userInputPostCode() {
         Driver.findElement(By.id("postal-code")).sendKeys("3464662");
-        pause(5000);
+        pause(1000);
     }
 
     @And("User Click Continue Button")
