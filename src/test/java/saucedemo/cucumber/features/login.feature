@@ -1,4 +1,4 @@
-Feature: Login Page Aplikasi Saucedemo
+Feature: Test Aplikasi Saucedemo
 
   Scenario: Success Login
     Given Halaman login saucedemo
